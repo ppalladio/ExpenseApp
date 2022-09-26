@@ -1,4 +1,5 @@
 import Expenses from './components/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 function App() {
     const expenses = [
         {
@@ -28,8 +29,10 @@ function App() {
     ];
     return (
         <div>
-            <Expenses items= {expenses }/> (//**' item in the Expenses component points at a value the we want to pass into the Expenses component, which is expenses array */)
-
+           <NewExpense />
+            <Expenses item={expenses} /> 
+            { /*//> item in the Expenses component points at a value the we want to pass into the Expenses component, which is expenses array  */}
+           
         </div>
     );
 }

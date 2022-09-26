@@ -3,7 +3,8 @@ import { useState } from 'react';
 import ExpenseDate from './ExpenseDate';
 import Card from './Card';
 function ExpenseItem(props) {
-    const [title, setTitle] = useState(props.title) //' useState(), inside is the initial state, as well as the first parameter of the array
+    const [title, setTitle] = useState(props.title) 
+//' useState(), inside is the initial state, as well as the first parameter of the array
     return (
         <Card className="expense-item">
             <ExpenseDate date={props.date} />

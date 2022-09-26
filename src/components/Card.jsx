@@ -1,7 +1,7 @@
 import './Card.css'
 
 function Card(props){
-    const classname = 'card' + props.className
+    const classname = 'card ' + props.className
     return (
         <div className={classname}>{props.children}</div> //.children is content in between the opening and closing tags
     )
