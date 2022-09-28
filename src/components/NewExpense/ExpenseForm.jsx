@@ -20,7 +20,7 @@ function ExpenseForm(props) {
     //     amount:'',
     //     date:''
     // })
-    // ' update state depends on previous states (when using single state) best practice
+    //. update state depends on previous states (when using single state) best practice
     // const dateChangeHandler = (e)=>{
     //     setUserInput((prevState)=>{
     //         return {...prevState, date: e.target.value}
@@ -35,7 +35,7 @@ function ExpenseForm(props) {
             amount: amount,
             date: new Date(date),
         };
-        props.onSaveExpense(expenseData)//' pass the data generate in this file up to the parent file[new expenses.js]
+        props.onSaveExpense(expenseData)//' call custom function, pass the data generate in this component up to the parent file[newExpenses.js]
         setAmount('');
         setDate('');
         setTitle('');

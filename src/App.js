@@ -27,9 +27,14 @@ function App() {
             date: new Date(2021, 5, 12),
         },
     ];
+    const saveExpenseDateHandler = (expense) => {
+    return(
+        console.log(expense)
+        )
+    }
     return (
         <div>
-           <NewExpense />
+           <NewExpense onSaveExpenseDate ={saveExpenseDateHandler}/>
             <Expenses item={expenses} /> 
             { /*//> item in the Expenses component points at a value the we want to pass into the Expenses component, which is expenses array  */}
            
