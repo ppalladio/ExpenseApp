@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './ExpenseForm.css';
+import './NewExpense.css'
 
-function ExpenseForm() {
+function ExpenseForm(props) {
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState('');
@@ -26,10 +26,7 @@ function ExpenseForm() {
     //         return {...prevState, date: e.target.value}
     //     })
     // }
-    setAmount('');
-    setDate('');
-    setTitle('');
-
+    
     const submitHandler = (e) => {
         e.preventDefault();
         //.bundle the data
@@ -38,6 +35,10 @@ function ExpenseForm() {
             amount: amount,
             date: new Date(date),
         };
+        props.onSaveExpense(expenseData)//' pass the data generate in this file up to the parent file[new expenses.js]
+        setAmount('');
+        setDate('');
+        setTitle('');
     };
     return (
         <form onSubmit={submitHandler}>
