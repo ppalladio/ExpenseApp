@@ -1,7 +1,6 @@
-import './ExpenseItem.css';
-
+import './ExpenseItem.scss';
 import ExpenseDate from './ExpenseDate';
-import Card from './Card';
+import Card from '../UI/Card';
 function ExpenseItem(props) {
     //' useState(), inside is the initial state, as well as the first parameter of the array
     return (

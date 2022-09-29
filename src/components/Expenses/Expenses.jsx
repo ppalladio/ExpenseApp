@@ -1,6 +1,6 @@
-import Card from './Card';
+import Card from '../UI/Card';
 import { useState } from 'react';
-import './Expenses.css';
+import './Expenses.scss';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
 function Expenses(props) {

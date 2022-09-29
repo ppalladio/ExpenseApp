@@ -1,4 +1,4 @@
-import './NewExpense';
+import './NewExpense.scss';
 import { useState } from 'react';
 import ExpenseForm from './ExpenseForm';
 function NewExpense(props) {
