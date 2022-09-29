@@ -4,8 +4,8 @@ function NewExpense(props) {
     const formDataHandler = (enteredExpenseData) => {
         //.enteredExpenseData is the data received from child element
         const expenseData = {
-            ...enteredExpenseData,//' the expected data is expected to be received from child component. 
             id: Math.random().toString(),
+            ...enteredExpenseData,//' the expected data is expected to be received from child component. 
         };
         props.onSaveExpenseDate(expenseData)
     };

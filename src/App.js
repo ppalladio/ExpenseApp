@@ -28,10 +28,9 @@ const init = [
     },
 ];
 function App() {
-    const [espenses, setExpenses] = useState(init);
+    const [expenses, setExpenses] = useState(init);
+    // setExpenses([expense,...espenses])//update depending on the previous state
     const saveExpenseDateHandler = (expense) => {
-        // setExpenses([expense,...espenses])//update depending on the previous state
-
         setExpenses((prevState) => {
             return [expense, ...prevState];
         }); //.adding the new expense to the existing expenses array
@@ -39,7 +38,7 @@ function App() {
     return (
         <div>
             <NewExpense onSaveExpenseDate={saveExpenseDateHandler} />
-            <Expenses item={espenses} />
+            <Expenses item={expenses} />
             {/*//> item in the Expenses component points at a value the we want to pass into the Expenses component, which is expenses array  */}
         </div>
     );

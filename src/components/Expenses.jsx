@@ -4,10 +4,14 @@ import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
 import ExpenseItem from './ExpenseItem';
 function Expenses(props) {
-    const [year, setYear] = useState('2020');
+    const [year, setYear] = useState('2021');
     const selectYearHandler = (year) => {
         setYear(year);
     };
+
+    const filteredExpenses = props.item.filter(
+        (expense) => expense.date.getFullYear().toString() === year,
+    ); //.props.item point to the expenses object
     return (
         <div>
             <Card className="expenses">
@@ -17,10 +21,11 @@ function Expenses(props) {
                 />
                 {/* //.two way binding [selected={year} and in the filter add a new property to select tag] */}
 
-                {props.item.map((expense) => (
+                {filteredExpenses.map((expense, _index) => (
                     <ExpenseItem
+                        key={expense.id} //!always add key when mapping out list of items of react wont render the whole list every time something gets added
                         title={expense.tltle}
-                        amount={expense.item}
+                        amount={expense.amount}
                         date={expense.date}
                     />
                 ))}
