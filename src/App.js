@@ -29,7 +29,7 @@ const init = [
 ];
 function App() {
     const [expenses, setExpenses] = useState(init);
-    // setExpenses([expense,...espenses])//update depending on the previous state
+    //. setExpenses([expense,...espenses])update depending on the previous state
     const saveExpenseDateHandler = (expense) => {
         setExpenses((prevState) => {
             return [expense, ...prevState];

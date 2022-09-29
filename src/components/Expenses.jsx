@@ -12,6 +12,27 @@ function Expenses(props) {
     const filteredExpenses = props.item.filter(
         (expense) => expense.date.getFullYear().toString() === year,
     ); //.props.item point to the expenses object
+
+    //.move the logic cheeck before the return statement
+    let textContent = <p> No expenses found </p>;
+    if (filteredExpenses.length > 0) {
+        textContent =
+            filteredExpenses.length === 0 &&
+            filteredExpenses.map(
+                (
+                    expense,
+                    _index, //' use .map to transform array to object to jsx elements
+                ) => (
+                    <ExpenseItem //'[item = expenses] in the App.js*
+                        key={expense.id} //!always add key when mapping out list of items of react wont render the whole list every time something gets added
+                        title={expense.tltle}
+                        amount={expense.amount}
+                        date={expense.date}
+                    />
+                ),
+            );
+    }
+
     return (
         <div>
             <Card className="expenses">
@@ -19,19 +40,9 @@ function Expenses(props) {
                     selected={year}
                     onSelectYear={selectYearHandler}
                 />
+                {textContent}
+
                 {/* //.two way binding [selected={year} and in the filter add a new property to select tag] */}
-
-                {filteredExpenses.map((expense, _index) => (
-                    <ExpenseItem
-                        key={expense.id} //!always add key when mapping out list of items of react wont render the whole list every time something gets added
-                        title={expense.tltle}
-                        amount={expense.amount}
-                        date={expense.date}
-                    />
-                ))}
-                {/*//' use .map to transform array to object to jsx elements 
-                //![item = expenses] in the App.js*/}
-
                 {/* (//:using props to get data from parent component, and in the parent component, the data passed in should be specified.eg item = expenses in App.js')
                 <ExpenseItem
                     title={props.item[1].title}
