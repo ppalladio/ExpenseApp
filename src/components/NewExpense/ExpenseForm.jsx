@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './NewExpense.css'
+import './NewExpense.css';
 
 function ExpenseForm(props) {
     const [title, setTitle] = useState('');
@@ -26,7 +26,7 @@ function ExpenseForm(props) {
     //         return {...prevState, date: e.target.value}
     //     })
     // }
-    
+
     const submitHandler = (e) => {
         e.preventDefault();
         //.bundle the data
@@ -35,11 +35,12 @@ function ExpenseForm(props) {
             amount: amount,
             date: new Date(date),
         };
-        props.onSaveExpense(expenseData)//' call custom function, pass the data generate in this component up to the parent file[newExpenses.js]
+        props.onSaveExpense(expenseData); //' call custom function, pass the data generate in this component up to the parent file[newExpenses.js]
         setAmount('');
         setDate('');
         setTitle('');
     };
+
     return (
         <form onSubmit={submitHandler}>
             {/* //.. the form will trigger an event when the submit button is clicked */}
@@ -74,6 +75,12 @@ function ExpenseForm(props) {
                     />
                 </div>
                 <div className="new-expense__actions">
+                    <button 
+                        type="button"
+                        onClick={props.onCancelEditing} //.use props to pass the cancelEditiong function
+                    >
+                        Cancel
+                    </button>
                     <button type="submit">Add Expense</button>
                 </div>
             </div>
