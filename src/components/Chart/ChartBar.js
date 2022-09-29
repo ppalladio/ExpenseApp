@@ -3,7 +3,7 @@ import './ChartBar.scss';
 function ChartBar(props) {
     let barHeight = '0%';
 
-    if (props.max > 0) {
+    if (props.maxValue > 0) {
         barHeight = Math.round((props.value / props.maxValue) * 100 + '%');
     }
     return (

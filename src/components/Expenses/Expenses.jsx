@@ -1,6 +1,7 @@
 import Card from '../UI/Card';
 import { useState } from 'react';
 import './Expenses.scss';
+import ExpensesChart from './ExpensesChart';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
 function Expenses(props) {
@@ -21,6 +22,7 @@ function Expenses(props) {
                     selected={year}
                     onSelectYear={selectYearHandler}
                 />
+                <ExpensesChart expense={filteredExpenses} />
                 <ExpensesList item ={filteredExpenses}/>
 
                 {/* //.two way binding [selected={year} and in the filter add a new property to select tag] */}
