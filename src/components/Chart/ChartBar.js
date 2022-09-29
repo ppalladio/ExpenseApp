@@ -4,17 +4,17 @@ function ChartBar(props) {
     let barHeight = '0%';
 
     if (props.maxValue > 0) {
-        barHeight = Math.round((props.value / props.maxValue) * 100 + '%');
+        barHeight = Math.round((props.value / props.maxValue) *100 )+'%';
     }
     return (
-        <div class="chart-bar">
-            <div class="chart-bar__inner">
+        <div className="chart-bar">
+            <div className="chart-bar__inner">
                 <div
-                    class="chart-bar__fill"
+                    className="chart-bar__fill"
                     style={{ height: barHeight }}
                 ></div>
             </div>
-            <div class="chart-bar__lable">{props.lable}</div>
+            <div className="chart-bar__lable">{props.lable}</div>
         </div>
     );
 }

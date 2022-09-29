@@ -22,7 +22,7 @@ function Expenses(props) {
                     selected={year}
                     onSelectYear={selectYearHandler}
                 />
-                <ExpensesChart expense={filteredExpenses} />
+                <ExpensesChart expenses={filteredExpenses} />
                 <ExpensesList item ={filteredExpenses}/>
 
                 {/* //.two way binding [selected={year} and in the filter add a new property to select tag] */}
