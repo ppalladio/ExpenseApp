@@ -2,7 +2,7 @@ import Card from './Card';
 import { useState } from 'react';
 import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
-import ExpenseItem from './ExpenseItem';
+import ExpensesList from './ExpensesList';
 function Expenses(props) {
     const [year, setYear] = useState('2021');
     const selectYearHandler = (year) => {
@@ -13,25 +13,6 @@ function Expenses(props) {
         (expense) => expense.date.getFullYear().toString() === year,
     ); //.props.item point to the expenses object
 
-    //.move the logic cheeck before the return statement
-    let textContent = <p> No expenses found </p>;
-    if (filteredExpenses.length > 0) {
-        textContent =
-            filteredExpenses.length === 0 &&
-            filteredExpenses.map(
-                (
-                    expense,
-                    _index, //' use .map to transform array to object to jsx elements
-                ) => (
-                    <ExpenseItem //'[item = expenses] in the App.js*
-                        key={expense.id} //!always add key when mapping out list of items of react wont render the whole list every time something gets added
-                        title={expense.tltle}
-                        amount={expense.amount}
-                        date={expense.date}
-                    />
-                ),
-            );
-    }
 
     return (
         <div>
@@ -40,7 +21,7 @@ function Expenses(props) {
                     selected={year}
                     onSelectYear={selectYearHandler}
                 />
-                {textContent}
+                <ExpensesList item ={filteredExpenses}/>
 
                 {/* //.two way binding [selected={year} and in the filter add a new property to select tag] */}
                 {/* (//:using props to get data from parent component, and in the parent component, the data passed in should be specified.eg item = expenses in App.js')
